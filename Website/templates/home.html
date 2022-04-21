@@ -1,4 +1,25 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %}
 {% block content %}
-<h1> This is the home page </h1>
+{% set data = value %}
+<table class="container">
+    <thead>
+        <tr>
+            <th>Ticker</th>
+            <th>RSI</th>
+            <th>Days Until Earnings</th>
+            <th>Oversold/Overbought</th>
+        </tr>
+    </thead>
+    {% for item in data %}
+    {% set items = item.split(':') %}
+        
+            <tr>
+                <td>{{items[0]}}</td>
+                <td>{{items[1]}}</td>
+                <td>{{items[2]}}</td>
+                <td>{{items[3]}}</td>
+            </tr>
+        
+{% endfor %}
+</table>
 {% endblock %}
